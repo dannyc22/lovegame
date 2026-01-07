@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi amor 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: #f7f7f7;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            image-rendering: pixelated;
+        }
+        
+        .container {
+            background: white;
+            border: 4px solid #535353;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 8px 8px 0px #535353;
+            text-align: center;
+            position: relative;
+        }
+        
+        .pregunta {
+            font-size: 20px;
+            color: #535353;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            min-height: 80px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .sticker-container {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            background: #f0f0f0;
+            border: 3px solid #535353;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+            overflow: hidden;
+            image-rendering: pixelated;
+        }
+        
+        .sticker-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            image-rendering: pixelated;
+        }
+        
+        .botones-area {
+            position: relative;
+            height: 300px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            font-size: 16px;
+            border: 3px solid #535353;
+            cursor: pointer;
+            transition: none;
+            font-weight: bold;
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 4px 4px 0px #535353;
+        }
+        
+        .btn:active {
+            box-shadow: 2px 2px 0px #535353;
+            transform: translate(2px, 2px);
+        }
+        
+        .btn-bueno {
+            background: #ff6b9d;
+            color: white;
+            z-index: 2;
+        }
+        
+        .btn-bueno:hover {
+            background: #ff5a8d;
+        }
+        
+        .btn-malo {
+            background: #4ecdc4;
+            color: white;
+            z-index: 1;
+        }
+        
+        .btn-malo:hover {
+            background: #45b8b0;
+        }
+        
+        .final {
+            display: none;
+        }
+        
+        .final.show {
+            display: block;
+            animation: aparecer 0.3s steps(5);
+        }
+        
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .corazones {
+            font-size: 50px;
+            margin: 20px 0;
+            animation: parpadeo 1s steps(2) infinite;
+        }
+        
+        @keyframes parpadeo {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.5; }
+        }
+        
+        .mensaje-final {
+            font-size: 24px;
+            color: #ff6b9d;
+            font-weight: bold;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .mensaje-triste {
+            font-size: 20px;
+            color: #535353;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        .instruccion {
+            font-size: 11px;
+            color: #999;
+            margin-top: 10px;
+            text-transform: none;
+        }
+
+        .pixel-heart {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #ff6b9d;
+            position: relative;
+            transform: rotate(45deg);
+            margin: 0 10px;
+        }
+
+        .pixel-heart::before,
+        .pixel-heart::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            background: #ff6b9d;
+            position: absolute;
+        }
+
+        .pixel-heart::before {
+            left: -20px;
+        }
+
+        .pixel-heart::after {
+            top: -20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="juego">
+            <div class="pregunta" id="pregunta"></div>
+            
+            <div class="sticker-container" id="stickerContainer">
+                [STICKER AQUI]
+            </div>
+            <div class="instruccion"></div>
+            
+            <div class="botones-area" id="botonesArea"></div>
+        </div>
+        
+        <div id="finalFeliz" class="final">
+            <div class="corazones">♥ ♥ ♥</div>
+            <div class="mensaje-final">MI AMOR FELIZ MES!!! GRACIAS POR TODO LO QUE HEMOS COMPARTIDO Y LO MUCHO QUE NOS FALTA, PORQUE ERES MI ALEGRIA Y PAZ </div>
+            <div class="sticker-container">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3ZrZmE5dDF5cjVpYnJ3N3UxNzhnYmZjbnE2ZmVvdTUzampnajRuNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/WP1Z0FfnuMuXqPvDlj/giphy.gif" alt="sticker">`;
+            </div>
+            <div class="corazones">♥ ♥ ♥</div>
+            <p style="margin-top: 20px; color: #535353; font-weight: bold;">TE AMO, TE AMO, TE AMO :D</p>
+        </div>
+        
+        <div id="finalTriste" class="final">
+            <div class="corazones" style="animation: none; opacity: 0.5;">💔 💔 💔</div>
+            <div class="mensaje-triste">LO SABIA, NUNCA ME AMASTE :(</div>
+            <div class="sticker-container">
+                 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXU1czFhOWZpbHk1NjcwNDZjbGZjbDFlZnJ2dDJjaHYyMzRweXBxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mi4ec226vjAkehSLk0/giphy.gif" alt="sticker">`;
+            </div>
+            <button class="btn btn-bueno" onclick="reiniciar()" style="position: relative; margin-top: 20px;">REINTENTAR (igual ya el daño esta hecho)</button>
+        </div>
+    </div>
+
+    <script>
+        const preguntas = [
+            {
+                texto: "Hola amorcito, te amo mucho, ¿también me amas?",
+                sticker: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXV3bWk4bW43NGNwNjNmcnF3MXQyNGdhd3k3em9mZmxmdng2bnRmMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/cJMlR1SsCSkUjVY3iK/giphy.gif",
+                buenas: ["SI ♥"],
+                malas: ["NO >:)"]
+            },
+            {
+                texto: "¿Segura? ¿De verdad me amas?",
+                sticker: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGE0b2Y4MXlzMjBpazM2NzNpbjI5Y2F2ZDJ3Y2NubzRsZXQ3ZmEwMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Lmq2eMv7gqVHC33Suc/giphy.gif",
+                buenas: ["SIIII ♥"],
+                malas: ["LA VERDA' LA VERDA', NO"]
+            },
+            {
+                texto: "¿Pero mucho mucho o poquito?",
+                sticker: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3R6MmV0OHM2M3F0ODZjbTRveG8zZHFieGU1NDlta2FrYXZ2MnByeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eCZgj8MkM07L2/giphy.gif",
+                buenas: ["Muchisimo"],
+                malas: ["Poquito"]
+            },
+            {
+                texto: "Vamos bien... pero ¿Me extrañas?",
+                sticker: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTdidXdndGswdHJtOHk5czgzMjV4MGF4bno0N2s4ZXlyYXdqdXNjMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1zyi1o77JaiRA4cbbx/giphy.gif",
+                buenas: ["ASI ES ♥"],
+                malas: ["PARA NADA"]
+            },
+            {
+                texto: "OYEEE ¿Pero si me amas?",
+                sticker: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnY4Y29qbHM3amI4aGQ5OHp1dDBjemxuY213YzRrMHZ1bDdlbHI3MSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Fu3OjBQiCs3s0ZuLY3/giphy.gif",
+                buenas: ["QUE SII"],
+                malas: ["NO CANSÓN"]
+            },
+            {
+                texto: "¿Me compras una husqvarna 701 :D?",
+                sticker: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3N6ZXRpd21ndHYyZm12bWp5aTEwNTZ2Mno4cWUyNDc5bmphbzFkMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/pKBZfGcYcgzrG/giphy.gif",
+                buenas: ["LO QUE QUIERAS MI REY"],
+                malas: ["2 ES QUE LE VOY A COMPRAR"]
+            },
+            {
+                texto: "¿Me lo daras? jeje",
+                sticker: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGl1bnlobzNldHd6aDJtZDllbHJrMjQ4czJiajdzdDhremc3c3g0MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UTFiHeDL8cOSA/giphy.gif",
+                buenas: ["DEFIMITIVAMENTE MI AMOR"],
+                malas: ["NO, NO TE AMO"]
+            },
+            {
+                texto: "¿ME AMAS TANTO COMO LOCAMENTE, INCESANTEMENTE Y FERVOROSAMENTE TE AMO?",
+                sticker: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGtvdG82eWpxcDJlbzg2ZTF6bDV2bTAycXV3bXlpZ2phYTE0eGRkYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/12WhkSmwGOGIUM/giphy.gif",
+                buenas: ["CI"],
+                malas: ["NO"]
+            }
+        ];
+
+        let preguntaActual = 0;
+        let intentosEscape = 0;
+
+        function posicionAleatoria() {
+            const area = document.getElementById('botonesArea');
+            const areaRect = area.getBoundingClientRect();
+            
+            const maxX = areaRect.width - 180;
+            const maxY = areaRect.height - 60;
+            
+            return {
+                x: Math.max(0, Math.random() * maxX),
+                y: Math.max(0, Math.random() * maxY)
+            };
+        }
+
+        function mostrarPregunta() {
+            if (preguntaActual >= preguntas.length) {
+                document.getElementById('juego').style.display = 'none';
+                document.getElementById('finalFeliz').classList.add('show');
+                return;
+            }
+
+            const p = preguntas[preguntaActual];
+            document.getElementById('pregunta').textContent = p.texto;
+            
+            const stickerContainer = document.getElementById('stickerContainer');
+            if (p.sticker) {
+                stickerContainer.innerHTML = `<img src="${p.sticker}" alt="sticker">`;
+            } else {
+                stickerContainer.innerHTML = '[STICKER AQUI]';
+            }
+            
+            const botonesArea = document.getElementById('botonesArea');
+            botonesArea.innerHTML = '';
+            intentosEscape = 0;
+
+            // Si es la última pregunta, invertir comportamiento
+            const esUltimaPregunta = preguntaActual === preguntas.length - 1;
+
+            p.buenas.forEach((texto, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'btn btn-bueno';
+                btn.textContent = texto;
+                
+                btn.style.left = '50%';
+                btn.style.transform = 'translateX(-50%)';
+                btn.style.top = (20 + index * 70) + 'px';
+                
+                if (esUltimaPregunta) {
+                    // En la última pregunta, los botones buenos se mueven
+                    btn.addEventListener('mouseenter', function() {
+                        moverBotonMalo(this);
+                    });
+                    
+                    btn.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
+                        moverBotonMalo(this);
+                    });
+                    
+                    btn.onclick = function() {
+                        intentosEscape++;
+                        if (intentosEscape >= 2) {
+                            respuestaBuena();
+                        } else {
+                            moverBotonMalo(this);
+                        }
+                    };
+                } else {
+                    // Comportamiento normal
+                    btn.onclick = respuestaBuena;
+                }
+                
+                botonesArea.appendChild(btn);
+            });
+
+            p.malas.forEach((texto, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'btn btn-malo';
+                btn.textContent = texto;
+                
+                btn.style.left = '50%';
+                btn.style.transform = 'translateX(-50%)';
+                btn.style.top = (170 + index * 70) + 'px';
+                
+                if (!esUltimaPregunta) {
+                    // Comportamiento normal: los malos se mueven
+                    btn.addEventListener('mouseenter', function() {
+                        moverBotonMalo(this);
+                    });
+                    
+                    btn.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
+                        moverBotonMalo(this);
+                    });
+                    
+                    btn.onclick = function() {
+                        intentosEscape++;
+                        if (intentosEscape >= 2) {
+                            respuestaMala();
+                        } else {
+                            moverBotonMalo(this);
+                        }
+                    };
+                } else {
+                    
+                    btn.onclick = respuestaMala;
+                }
+                
+                botonesArea.appendChild(btn);
+            });
+        }
+
+        function moverBotonMalo(btn) {
+            const nuevaPos = posicionAleatoria();
+            btn.style.left = nuevaPos.x + 'px';
+            btn.style.top = nuevaPos.y + 'px';
+            btn.style.transform = 'none';
+        }
+
+        function respuestaBuena() {
+            preguntaActual++;
+            mostrarPregunta();
+        }
+
+        function respuestaMala() {
+            document.getElementById('juego').style.display = 'none';
+            document.getElementById('finalTriste').classList.add('show');
+        }
+
+        function reiniciar() {
+            preguntaActual = 0;
+            document.getElementById('finalTriste').classList.remove('show');
+            document.getElementById('juego').style.display = 'block';
+            mostrarPregunta();
+        }
+
+        mostrarPregunta();
+    </script>
+</body>
+</html>
